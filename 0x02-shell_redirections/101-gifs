@@ -1,3 +1,2 @@
 #!/bin/bash
-find . -type f -name "*.gif" -printf "%f\n"| rev | cut -d '.' -f2- | rev | LC_ALL=C sort -f' > 101-gifs && echo "#!/bin/bash
-echo -ne $(cut -c-1 | tr -d '\n')'\n'" > 102-acrostic && echo
+find . -type f -name "*.gif" -printf "%f\n"| rev | cut -d '.' -f2- | rev | LC_ALL=C sort -f
