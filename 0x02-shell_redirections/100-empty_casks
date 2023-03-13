@@ -1,0 +1,2 @@
+echo '#!/bin/bash
+find . -empty -printf "%f\n"' > 100-empty_casks && echo 
