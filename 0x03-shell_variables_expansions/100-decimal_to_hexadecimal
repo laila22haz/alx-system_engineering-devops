@@ -1,2 +1,3 @@
 #!/bin/bash
-printf '%X\n' $NUM
+export $NUM
+printf "%X\n" $NUM
