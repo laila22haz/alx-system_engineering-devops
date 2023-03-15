@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%X\n"$MY_NUMBER
+printf '%x\n' $MY_NUMBER
