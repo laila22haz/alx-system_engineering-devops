@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#use kill
+
+kill "$(pgrep -f 5-dont_stop_me_now)"
