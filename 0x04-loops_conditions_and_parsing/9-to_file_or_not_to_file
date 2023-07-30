@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#file_or_not_file
 
 if [[ -e school ]]
 then
