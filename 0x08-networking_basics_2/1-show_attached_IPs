@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#Bash script that displays all
+#active IPv4 IPs on the machine it’s executed on
+
+ifconfig | grep 'netmask' | awk '{print$2}'
