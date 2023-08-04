@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 #Bash script that listens on port 98 on localhost
 
-netstat -ln  | grep :98
-echo $?
+nc --listen 98
