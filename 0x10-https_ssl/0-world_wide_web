@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# HAproxy SSL termination
 # World wide web
 if [ "$#" -eq 1 ]; then
     echo "$(dig www.$1 | awk '/ANSWER SECTION:/ {getline; print "The subdomain www is a "$4" record and points to "$5}')"
