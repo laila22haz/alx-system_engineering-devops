@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
-grep -wF -e "$(whoami)" "$1"
+if [[ $# -eq 1 ]]; then
+    username="$1"
+    sudo -u "$username" whoami
+else
+    exit 1
+fi
