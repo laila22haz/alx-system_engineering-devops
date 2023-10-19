@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+grep -wF -e "$(whoami)" "$1"
