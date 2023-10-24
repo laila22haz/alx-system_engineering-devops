@@ -14,18 +14,18 @@ def gather_data(id):
     response = requests.get(f"{url}/todos")
     todo_list = response.json()
 
-    with open(f'{id}.json', 'w') as jsonfile:
-        for todo in todo_list:
-            data = {
-                id: [
-                    {
-                        "task": todo.get("title"),
-                        "completed": todo.get("completed"),
-                        "username": username,
-                        }
-                    ]
-            }
-            json.dump(data, jsonfile)
+    with open(f"{id}.json", "w") as f:
+        data = {
+            id: [
+                {
+                    "task": task.get("title"),
+                    "completed": task.get("completed"),
+                    "username": username,
+                }
+                for task in todo_list
+            ]
+        }
+        json.dump(data, f)
 
 
 if __name__ == "__main__":
