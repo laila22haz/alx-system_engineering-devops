@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 """Gather data from an API
 """
+import csv
 import requests
 import sys
-import json
-import csv
 
 
 def gather_data(id):
@@ -17,7 +16,7 @@ def gather_data(id):
 
     with open(f'{id}.csv', 'w') as csvfile:
         for todo in todo_list:
-            data = (f'"{id}", "{username}","{todo.get("completed")}",')
+            data = (f'"{id}","{username}","{todo.get("completed")}",')
             data_ = (f'"{todo.get("title")}"\n')
             csvfile.write(data+data_)
 
