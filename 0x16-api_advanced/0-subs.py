@@ -10,7 +10,6 @@ def number_of_subscribers(subreddit):
 
     try:
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raises an HTTPError for bad status codes
 
         data = response.json()
         find_subscribers = data.get("data", {}).get("subscribers", 0)
