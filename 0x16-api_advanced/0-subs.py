@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
         response = requests.get(url, headers=headers)
 
         data = response.json()
-        find_subscribers = data.get("data", {}).get("subscribers", 0)
+        find_subscribers = data.get("data").get("subscribers")
         return find_subscribers
     except requests.HTTPError as e:
         if e.response.status_code == 404:
