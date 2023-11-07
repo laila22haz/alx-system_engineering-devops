@@ -1,17 +1,22 @@
 #!/usr/bin/python3
 """How many subs"""
 import requests
-import json
 
 
 def number_of_subscribers(subreddit):
-    """returns the number of subscribers"""
+    """Returns the number of subscribers"""
     url = f'https://www.reddit.com/r/{subreddit}/about.json'
-    request = requests.get(url, headers={
-        'User-agent': 'Chrome'}, allow_redirects=False)
-    json_load = json.loads(request.text)
-    if request.status_code == 200:
-        find_subscribers = json_load.get("data")["subscribers"]
+    headers = {'User-Agent': 'Chrome'}
+
+    try:
+        response = requests.get(url, headers=headers)
+        response.raise_for_status()  # Raises an HTTPError for bad status codes
+
+        data = response.json()
+        find_subscribers = data.get("data", {}).get("subscribers", 0)
         return find_subscribers
-    else:
-        return 0
+    except requests.HTTPError as e:
+        if e.response.status_code == 404:
+            return 0
+        else:
+            return 0
