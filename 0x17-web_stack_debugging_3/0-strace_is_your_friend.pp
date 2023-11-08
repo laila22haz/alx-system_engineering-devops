@@ -1,11 +1,11 @@
-# replace the extension .phpp with .php in wp-settings.php
-
-file { '/var/www/html/wp-includes/class-wp-locale.php':
+# try  to replace the fix the extension error
+file { '/var/www/html/wp-settings.php':
   ensure  => file,
-  source  => '/var/www/html/wp-includes/class-wp-locale.phpp',
-  replace => false, # To replace content, set this to 'true' (it may have some limitations)
+  source  => '/var/www/html/wp-settings.php',
+  replace => false,
 }
 
-exec { 'fix_wp_locale':
-  command => 'sed -i "s/.phpp/.php/g" /var/www/html/wp-includes/class-wp-locale.php',
+exec { 'fix_wp_settings':
+  command => 'sed -i "s/\.phpp/\.php/g" /var/www/html/wp-settings.php',
+  path    => ['/usr/bin', '/bin'],
 }
