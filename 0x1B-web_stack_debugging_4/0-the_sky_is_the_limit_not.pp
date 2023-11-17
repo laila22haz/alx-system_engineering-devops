@@ -1,11 +1,5 @@
-file { '/etc/default/nginx':
-  ensure  => file,
-  content => 'ULIMIT="-n 4096"\n',
-}
-
-exec { 'restart_nginx':
-  command     => '/usr/sbin/service nginx restart',
+exec { 'adjust_ulimit_and_restart_nginx':
+  command     => "sed -i 's/ULIMIT=\"-n 15\"/ULIMIT=\"-n 4096\"/g' /etc/default/nginx && /usr/sbin/service nginx restart",
+  path        => ['/bin', '/usr/bin', '/usr/sbin'],
   refreshonly => true,
-  path        => '/usr/sbin',
-  subscribe   => File['/etc/default/nginx'],
 }
