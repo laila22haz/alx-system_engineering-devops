@@ -6,5 +6,6 @@ file { '/etc/default/nginx':
 exec { 'restart_nginx':
   command     => '/usr/sbin/service nginx restart',
   refreshonly => true,
+  path        => '/usr/sbin',
   subscribe   => File['/etc/default/nginx'],
 }
